@@ -15,38 +15,82 @@ const mongoUri = process.env.MONGO_URI
 const port = process.env.PORT
 
 // Define schemas using mongoose.Schema
-const adminSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  mobile: { type: String, required: true },
-  password: { type: String, required: true }
-});
+const adminSchema = {
+  name: {
+    type: String,
+    required:true
+  },
+  email:{
+    type: String,
+    required:true
+  },
+  mobile:{
+    type: String,
+    required:true
+  },
+  password:{
+    type: String,
+    required:true
+  },
+}
 
-const Admin = mongoose.model('Admin', adminSchema);
+const studentSchema = {
+  name: {
+    type: String,
+    required:true
+  },
+  email:{
+    type: String,
+    required:true
+  },
+  mobile:{
+    type: String,
+    required:true
+  },
+  password:{
+    type: String,
+    required:true
+  },
+}
 
-const studentSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  mobile: { type: Number, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true }
-});
+const imageSchema = {
+  title: {
+    type: String,
+    required:true
+  },
+  url:{
+    type: String,
+    required:true
+  },
+}
 
-const Student = mongoose.model('Student', studentSchema);
+const eventImageSchema = {
+  title: {
+    type: String,
+    required:true
+  },
+  url:{
+    type: String,
+    required:true
+  },
+}
 
-const imagesSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  url:{ type: String, required: true }
-})
+const videoSchema = {
+  title: {
+    type: String,
+    required:true
+  },
+  url:{
+    type: String,
+    required:true
+  },
+}
 
-const Image = mongoose.model('Image', imagesSchema)
-
-const eventImagesSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  url:{ type: String, required: true }
-})
-
-const EventImages = mongoose.model('EventImages', eventImagesSchema)
-
+const Admin = mongoose.model('Admin', adminSchema)
+const Student = mongoose.model('Student', studentSchema)
+const Image = mongoose.model('Image', imageSchema)
+const EventImage = mongoose.model('EventImage',eventImageSchema)
+const Video = mongoose.model('Video',videoSchema)
 
 // Connect to MongoDB
 const  connectToDatabase = async() => {
