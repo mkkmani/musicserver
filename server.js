@@ -170,7 +170,7 @@ app.post('/admin/login', async (req, res) => {
     const verifyPassword = await bcrypt.compare(password, user.password);
     if (verifyPassword) {
       const payload = { id: user._id, mobile: user.mobile, email: user.email };
-      const jwtToken = jwt.sign(payload, process.env.MY_SECRET_CODE, { expiresIn: '1h' });
+      const jwtToken = jwt.sign(payload, process.env.SECRET_CODE, { expiresIn: '1h' });
       return res.status(200).json({ jwtToken });
     } else {
       return res.status(401).json({ message: 'Invalid password' });
