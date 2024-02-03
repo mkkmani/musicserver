@@ -95,10 +95,10 @@ const Video = mongoose.model('Video',videoSchema)
 // Connect to MongoDB
 const  connectToDatabase = async() => {
   try {
-    await mongoose.connect(mongoUri);
+    await mongoose.connect(mongoUri,{ autoCreate: true });
     console.log('Database connected successfully');
-    app.listen(port || 5009, () => {
-      console.log(`Server is running on port ${port}`);
+    app.listen(port || 3009, () => {
+      console.log(`Server is running on port ${port || 3009}`);
     });
   } catch (error) {
     console.error('Error in database connection:', error);
