@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 // const tempUri = 'mongodb://localhost:27017/music';
-const mongoUri = process.env.REACT_APP_MONGO_URI
-const port = process.env.REACT_APP_PORT
+const mongoUri = process.env.MONGO_URI
+const port = process.env.PORT
 
 // Define schemas using mongoose.Schema
 const adminSchema = new mongoose.Schema({
